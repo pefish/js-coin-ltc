@@ -1,6 +1,6 @@
 {
   "name": "@pefish/js-coin-ltc",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ltc tool of js",
   "keywords": [
     "common",
@@ -21,7 +21,7 @@
   },
   "scripts": {
     "build": "rm -rf lib && rm -rf types && tsc",
-    "test": "mocha --timeout 6000 --require ts-node/register tests/*.test.js",
+    "test": "mocha --timeout 6000 --require ts-node/register src/*.test.ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "prepublish": "yarn build"
   },

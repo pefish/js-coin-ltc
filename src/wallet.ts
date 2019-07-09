@@ -22,7 +22,18 @@ export default class Wallet extends BaseWalletHelper {
 
   parseNetwork (network): object {
     if (network === `mainnet`) {
-      return this.bitcoinLib.networks[`litecoin`]
+      return {
+        messagePrefix: '\x19Litecoin Signed Message:\n',
+        bech32: 'bc',
+        bip32: {
+          public: 0x0488b21e,
+          private: 0x0488ade4,
+        },
+        pubKeyHash: 0x30,
+        scriptHash1: 0x05,
+        scriptHash: 0x32,
+        wif: 0xB0,
+      }
     } else {
       throw new ErrorHelper(`network error`)
     }

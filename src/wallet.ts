@@ -1,6 +1,6 @@
 /** @module */
 import '@pefish/js-node-assist'
-import BaseWalletHelper from '@pefish/js-coin-btc/lib/base/base_bitcoinjs_lib'
+import BtcWalletHelper from '@pefish/js-coin-btc/lib/wallet'
 import ErrorHelper from '@pefish/js-error'
 
 declare global {
@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-export default class Wallet extends BaseWalletHelper {
+export default class Wallet extends BtcWalletHelper {
   decimals: number = 8;
   bitcoinLib: any
 

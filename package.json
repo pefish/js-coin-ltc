@@ -34,7 +34,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "@pefish/js-coin-btc": "^0.3.3",
+    "@pefish/js-coin-btc": "^0.3.4",
     "@pefish/js-error": "^0.0.5",
     "@pefish/js-node-assist": "^0.6.5"
   }

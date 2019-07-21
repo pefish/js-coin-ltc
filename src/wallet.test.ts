@@ -1,6 +1,6 @@
-import '@pefish/js-node-assist';
-import BitcoinWalletHelper from './wallet';
-import assert from 'assert';
+import '@pefish/js-node-assist'
+import BitcoinWalletHelper from './wallet'
+import assert from 'assert'
 
 declare global {
   namespace NodeJS {

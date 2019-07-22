@@ -58,5 +58,33 @@ describe('bitcoinWalletHelper', () => {
       assert.throws(() => {}, err)
     }
   })
+
+  // it('buildTransactionOnline', async () => {
+  //   try {
+  //     walletHelper.initRemoteClient({
+  //       "host": "35.221.161.180",
+  //       "port": 18332,
+  //       "ssl": false
+  //     })
+  //     const tx = await walletHelper.buildTransactionOnline(
+  //       [
+  //         {
+  //           "txid": "bb592f244d635d2ff4113bd066d9d0a4ab6932dbf7afb5c4d7aa6de98dafa2a4",
+  //           "vout": 4,
+  //         },
+  //       ],
+  //       {
+  //         "37aQdhpqrNgGDfLHshViB22XpAif1jwkjp": 3.058,
+  //         "Lc9gX3UJPntZjNuWd7h4JCxGZiXRotTCMb": 0.04
+  //       },
+  //       [``],
+  //     )
+  //     global.logger.error(JSON.stringify(tx))
+  //     // assert.strictEqual(segwit, `MPmMkmBtbC6JnuiPyeFn8uuA9AkWs3HtPu`)
+  //   } catch (err) {
+  //     global.logger.error(err)
+  //     assert.throws(() => {}, err)
+  //   }
+  // })
 })
 

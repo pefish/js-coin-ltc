@@ -11,9 +11,12 @@ declare global {
   }
 }
 
+type BuildTransactionResult = {txId: string, txHex: string}
+
 export default class Wallet extends BtcWalletHelper {
   decimals: number = 8;
   bitcoinLib: any
+  [x: string]: any
 
   public constructor () {
     super()
@@ -36,6 +39,27 @@ export default class Wallet extends BtcWalletHelper {
       }
     } else {
       throw new ErrorHelper(`network error`)
+    }
+  }
+
+  async buildTransactionOnline (utxos: Array<{txid: string, vout: number}>, targets: {[address: string]: number}, wifs: Array<string>): Promise<BuildTransactionResult> {
+    if (!this.remoteClient) {
+      throw new ErrorHelper(`please init remore client first!!!`)
+    }
+    const unsignedTxHex = await this.remoteClient.request(`createrawtransaction`, [
+      utxos,
+      targets,
+    ])
+    const signedTxInfo = await this.remoteClient.request(`signrawtransactionwithkey`, [
+      unsignedTxHex,
+      wifs,
+    ])
+    const txInfo = await this.remoteClient.request(`decoderawtransaction`, [
+      signedTxInfo[`hex`],
+    ])
+    return {
+      txId: txInfo[`txid`],
+      txHex: signedTxInfo[`hex`],
     }
   }
 }

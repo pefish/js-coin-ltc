@@ -1,6 +1,6 @@
 {
   "name": "@pefish/js-coin-ltc",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "ltc tool of js",
   "keywords": [
     "common",
@@ -11,7 +11,8 @@
   "bugs": "https://github.com/pefish/js-coin-ltc/issues",
   "license": "MIT",
   "author": "pefish",
-  "types": "./types/*.d.ts",
+  "types": "./types/index.d.ts",
+  "main": "./lib/index.js",
   "engines": {
     "node": "*"
   },

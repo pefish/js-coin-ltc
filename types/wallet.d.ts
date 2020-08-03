@@ -8,9 +8,21 @@ declare global {
         }
     }
 }
+declare type BuildTransactionResult = {
+    txId: string;
+    txHex: string;
+};
 export default class Wallet extends BtcWalletHelper {
     decimals: number;
     bitcoinLib: any;
+    [x: string]: any;
     constructor();
     parseNetwork(network: any): object;
+    buildTransactionOnline(utxos: Array<{
+        txid: string;
+        vout: number;
+    }>, targets: {
+        [address: string]: number;
+    }, wifs: Array<string>): Promise<BuildTransactionResult>;
 }
+export {};

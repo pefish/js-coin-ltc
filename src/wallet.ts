@@ -1,7 +1,7 @@
 /** @module */
-import '@pefish/js-node-assist'
-import BtcWalletHelper from '@pefish/js-coin-btc/lib/wallet'
+import { BtcWallet } from '@pefish/js-coin-btc'
 import ErrorHelper from '@pefish/js-error'
+import {Network} from "bitcoinjs-lib";
 
 declare global {
   namespace NodeJS {
@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-export default class Wallet extends BtcWalletHelper {
+export default class Wallet extends BtcWallet {
   decimals: number = 8;
   bitcoinLib: any
 
@@ -20,7 +20,7 @@ export default class Wallet extends BtcWalletHelper {
     this.bitcoinLib = require('@pefish/bitcoinjs-lib')
   }
 
-  parseNetwork (network): object {
+  parseNetwork (network): Network {
     if (network === `mainnet`) {
       return {
         messagePrefix: '\x19Litecoin Signed Message:\n',
@@ -33,7 +33,7 @@ export default class Wallet extends BtcWalletHelper {
         scriptHash1: 0x05,
         scriptHash: 0x32,
         wif: 0xB0,
-      }
+      } as any
     } else {
       throw new ErrorHelper(`network error`)
     }

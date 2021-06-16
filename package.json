@@ -1,6 +1,6 @@
 {
   "name": "@pefish/js-coin-ltc",
-  "version": "0.0.3",
+  "version": "0.0.6",
   "description": "ltc tool of js",
   "keywords": [
     "common",
@@ -23,19 +23,21 @@
     "build": "rm -rf lib && rm -rf types && tsc",
     "test": "mocha --timeout 6000 --require ts-node/register src/*.test.ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "prepublish": "yarn build"
+    "prepublishOnly": "yarn build && yarn test"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
     "@types/node": "^11.13.7",
+    "mocha": "^8.3.2",
     "ts-node": "^8.1.0",
     "tslint": "^5.16.0",
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "@pefish/js-coin-btc": "^0.3.4",
-    "@pefish/js-error": "^0.0.5",
-    "@pefish/js-node-assist": "^0.6.5"
+    "@pefish/bitcoinjs-lib": "^5.2.0",
+    "@pefish/js-coin-btc": "^0.3.15",
+    "@pefish/js-error": "^0.1.2",
+    "@pefish/js-node-assist": "^2.0.8"
   }
 }

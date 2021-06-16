@@ -1,6 +1,6 @@
 /** @module */
-import '@pefish/js-node-assist';
-import BtcWalletHelper from '@pefish/js-coin-btc/lib/wallet';
+import { BtcWallet } from '@pefish/js-coin-btc';
+import { Network } from "bitcoinjs-lib";
 declare global {
     namespace NodeJS {
         interface Global {
@@ -8,9 +8,9 @@ declare global {
         }
     }
 }
-export default class Wallet extends BtcWalletHelper {
+export default class Wallet extends BtcWallet {
     decimals: number;
     bitcoinLib: any;
     constructor();
-    parseNetwork(network: any): object;
+    parseNetwork(network: any): Network;
 }
